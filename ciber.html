@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Marc Boreu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercici JavaScript Bàsic</title>
+    <!-- MarcBoreu JavaScript -->
+    <script type="text/javascript">
+
+        //---- EXERCICI 1 ----//
+        function exercici1() {
+            console.log("Hola mundo");
+        }
+
+        //---- EXERCICI 2 ----//
+        function exercici2() {
+            window.alert("¡Me llamo Marc!");
+        }
+
+        //---- EXERCICI 3 ----//
+        function exercici3() {
+            let nombre = "Marc";
+            let apellido = "Boreu";
+            console.log(`${nombre} ${apellido}`);
+        }
+
+        //---- EXERCICI 4 ----//
+        function exercici4() {
+            let numero1 = 34;
+            let numero2 = 56;
+            console.log(`La suma de ${numero1} i ${numero2} es ${numero1 + numero2}`);
+        }
+
+        //---- EXERCICI 5 ----//
+        function exercici5() {
+            let nota_examen = parseFloat(prompt("Introdueix la nota del examen"));
+            let mensajeAprobado = "Felicitats! Has aprobat l'examen amb un ";
+            let mensajeSuspenso = "Ohh! Has suspés l'eexamen amb un ";
+            if ((nota_examen < 5) && (nota_examen >= 0)) {
+                window.alert(mensajeSuspenso + nota_examen);
+            } else if ((nota_examen <= 10) && (nota_examen >= 5)) {
+                window.alert(mensajeAprobado + nota_examen);
+            } else {
+                window.alert("Només s'admeten notes entre el 0 i el 10, proba un altre cop");
+            }
+        }
+
+        //---- EXERCICI 6 ----//
+        function exercici6() {
+            let mensaje = "Tinc un cotxe de color blau";
+            console.log(mensaje);
+            let reemplazarColor = mensaje.replace(/blau/gi, "verd");//Replace "blau" for "verd"
+            console.log(reemplazarColor);
+            let reemplazarLetra = mensaje.replace(/[o]/gi, 'u'); //Replace "o" for "u"
+            console.log(reemplazarLetra);
+        }
+
+        //---- EXERCICI 7 ----//
+        function exercici7() {
+            let objectes = new Array("taula", "cadira", "ordinador", "llibreta");
+            for (i = 0; i < objectes.length; i++) {
+                mensaje = "L'objecte " + objectes[i] + " està en la posició " + i;
+                console.log(mensaje);
+            }
+            console.log(objectes);
+        }
+
+        //---- EXERCICI 8 ----//
+        let operador, valor1, valor2;
+        function exercici8calculadora(operador, valor1, valor2) {
+            operador = document.getElementById("operador").value;
+            valor1 = parseInt(document.getElementById("valor1").value);
+            valor2 = parseInt(document.getElementById("valor2").value);
+            switch (operador) {
+                case "sumar":
+                    resultat = valor1 + valor2;
+                    break;
+                case "restar":
+                    resultat = valor1 - valor2;
+                    break;
+                case "multiplicar":
+                    resultat = valor1 * valor2;
+                    break;
+                case "dividir":
+                    resultat = valor1 / valor2;
+                    break;
+            }
+            console.log(resultat);
+            document.getElementById("enunciat").style.display = "inline-block";
+            document.getElementById("resultat").innerHTML = resultat;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Exercici 1</h1>
+    <input type='button' onclick="exercici1()" Value='Executar' />
+
+    <h1>Exercici 2</h1>
+    <input type='button' onclick="exercici2()" Value='Executar' />
+
+    <h1>Exercici 3</h1>
+    <input type='button' onclick="exercici3()" Value='Executar' />
+
+    <h1>Exercici 4</h1>
+    <input type='button' onclick="exercici4()" Value='Executar' />
+
+    <h1>Exercici 5</h1>
+    <input type='button' onclick="exercici5()" Value='Executar' />
+
+    <h1>Exercici 6</h1>
+    <input type='button' onclick="exercici6()" Value='Executar' />
+
+    <h1>Exercici 7</h1>
+    <input type='button' onclick="exercici7()" Value='Executar' />
+
+    <h1>Exercici 8</h1>
+    <input type="number" id="valor1" style="color:black;" />
+    <select id="operador" style="color:black;">
+        <option value="sumar">+</option>
+        <option value="restar">-</option>
+        <option value="multiplicar">*</option>
+        <option value="dividir">/</option>
+    </select>
+    <input type="number" id="valor2" style="color:black;" />
+    <p id="enunciat" style="display:none; color:black;">El resultat de l'operació es = </p>
+    <p id="resultat" style="display:inline-block; color:black;"></p>
+    <input type='button' onclick="exercici8calculadora()" Value='Executar' />
+
+</body>
+
+</html>
